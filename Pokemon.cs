@@ -64,21 +64,20 @@ namespace PokemonPocket
 				string option = Console.ReadLine();
 				Random rdn = new Random();
 
-				if (option == "1")
+				if (option == "1" || option == "2")
 				{
-					move -= 1;
-					if(rdn.Next(0,2) == 0)
-					{
-						Console.WriteLine("Successfully flee from battle.");
-						break;
+					if(option == "1"){
+						move -= 1;
+						if(rdn.Next(0,2) == 0)
+						{
+							Console.WriteLine("Successfully flee from battle.");
+							break;
+						}
+						else
+						{
+							Console.WriteLine("Fail to flee from battle.");
+						}
 					}
-					else
-					{
-						Console.WriteLine("Fail to flee from battle.");
-					}
-				}
-				else if(option =="2")
-				{
 					foughtTillEnd = true;
 					if (move==1)
 					{
@@ -94,7 +93,7 @@ namespace PokemonPocket
 					this.Hp = Math.Max(balanceHp, 0);
 					Console.WriteLine($"Enemy {compPokemon.Name} attacks {this.Name} with {compPokemon.Skill} for {compDamage} damage."
 					+ $" {this.Name} | Hp: {this.Hp}/{this.BaseHp}");
-				}
+				}				
 				else{
 					Console.WriteLine("Invalid Input. Try Again.");
 				}
